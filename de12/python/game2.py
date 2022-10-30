@@ -9,6 +9,31 @@ for i in range(1,100):
 
     suji_list.append(suji_list) #ここでsujiという変数の値をリストに追加している
 
+import random
+
+answer = random.randint(1, 100)
+turn = 0
+
+print('★ 数当てゲーム ★')
+
+while True:
+
+    n = int(input('1~100 の間の数字を入力してください: '))
+
+    turn += 1
+
+    if n < answer:
+        print('もっと大きい!')
+
+    elif n > answer:
+      print('もっと小さい!')
+
+    else:
+      print('正解!!')
+      break
+
+print('答えは {}, 正解までに {} ターンかかりました'.format(answer, turn))
+
 
 start_time = time.perf_counter ()
 """コード"""
