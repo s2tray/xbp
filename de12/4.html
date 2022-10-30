@@ -20,6 +20,62 @@
 　　<br>ゲームのコンテニューが長く、かつ爆弾が爆発する演出を入れるので、
 <br>やる人は相当イラつくクソゲーになると考えられる。</br>
 
+<div><h1>出来かけの「数当て」ゲーム</h1></div>
+<br>（完成形はのちに掲載する）</br>
+<br><code>
+    <ol style="list-style:decimal-leading-zero outside;in-left:0;padding-left:36px;margin:0;background-color:#EEF;color:#000;">
+    <li style="background-color:#EFF;">import random</li>
+    <li style="background-color:#EEF;">a = random.randint(1, 100)</li>
+    <li style="background-color:#EFF;">print(a)</li>
+    <li style="background-color:#EEF;"># 解答者が爆弾を回避する</li>
+    <li style="background-color:#EFF;"></li>
+    <li style="background-color:#EEF;">suji_list=[] #suji_listというリストを作る</li>
+    <li style="background-color:#EFF;">for i in range(1,100):</li>
+    <li style="background-color:#EEF;">&nbsp;&nbsp;&nbsp;&nbsp;print(i)</li>
+    <li style="background-color:#EFF;"></li>
+    <li style="background-color:#EEF;">&nbsp;&nbsp;&nbsp;&nbsp;suji_list.append(suji_list) #ここでsujiという変数の値をリストに追加している</li>
+    <li style="background-color:#EFF;"></li>
+    <li style="background-color:#EEF;">import random</li>
+    <li style="background-color:#EFF;"></li>
+    <li style="background-color:#EEF;">answer = random.randint(1, 100)</li>
+    <li style="background-color:#EFF;">turn = 0</li>
+    <li style="background-color:#EEF;"></li>
+    <li style="background-color:#EFF;">print('★ 数当てゲーム ★')</li>
+    <li style="background-color:#EEF;"></li>
+    <li style="background-color:#EFF;">while True:</li>
+    <li style="background-color:#EEF;"></li>
+    <li style="background-color:#EFF;">&nbsp;&nbsp;&nbsp;&nbsp;n = int(input('1~100 の間の数字を入力してください: '))</li>
+    <li style="background-color:#EEF;"></li>
+    <li style="background-color:#EFF;">&nbsp;&nbsp;&nbsp;&nbsp;turn += 1</li>
+    <li style="background-color:#EEF;"></li>
+    <li style="background-color:#EFF;">&nbsp;&nbsp;&nbsp;&nbsp;if n &lt; answer:</li>
+    <li style="background-color:#EEF;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;print('もっとビック')</li>
+    <li style="background-color:#EFF;"></li>
+    <li style="background-color:#EEF;">&nbsp;&nbsp;&nbsp;&nbsp;elif n &gt; answer:</li>
+    <li style="background-color:#EFF;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;print('もっとスモール')</li>
+    <li style="background-color:#EEF;"></li>
+    <li style="background-color:#EFF;">&nbsp;&nbsp;&nbsp;&nbsp;else:</li>
+    <li style="background-color:#EEF;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;print('正解!!')</li>
+    <li style="background-color:#EFF;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;break</li>
+    <li style="background-color:#EEF;"></li>
+    <li style="background-color:#EFF;">print('答えは {}, 正解までに {} ターンかかりました'.format(answer, turn))</li>
+    <li style="background-color:#EEF;"></li>
+    <li style="background-color:#EFF;"></li>
+    <li style="background-color:#EEF;">start_time = time.perf_counter ()</li>
+    <li style="background-color:#EFF;">"""コード"""</li>
+    <li style="background-color:#EEF;">end_time = time.perf_counter ()</li>
+    <li style="background-color:#EFF;"></li>
+    <li style="background-color:#EEF;"># 計測した時間の計算(秒数)</li>
+    <li style="background-color:#EFF;">tim = end_time - start_time</li>
+    <li style="background-color:#EEF;"># 秒数から分数のみ(秒数なし)を計算</li>
+    <li style="background-color:#EFF;">mint = tim // 60</li>
+    <li style="background-color:#EEF;"># 秒数から秒数のみ(分数なし)を計算</li>
+    <li style="background-color:#EFF;">secd = (tim % 60) - mint</li>
+    <li style="background-color:#EEF;"># 分数は小数点以下を非表示(計算の時点で必ず0のため)、秒数は小数点第一位まで表示</li>
+    <li style="background-color:#EFF;">print ( "所要時間は {:.0f} 分 {:.1f} 秒".format ( mint, secd ) )</li>
+    </ol></code></br>
+
+
    
     
 <br><a href="./index.html">デザイン演習Ⅰ・Ⅱトップページ</a></br>

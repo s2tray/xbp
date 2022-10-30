@@ -23,10 +23,10 @@ while True:
     turn += 1
 
     if n < answer:
-        print('もっと大きい!')
+        print('もっとビック')
 
     elif n > answer:
-      print('もっと小さい!')
+      print('もっとスモール')
 
     else:
       print('正解!!')
