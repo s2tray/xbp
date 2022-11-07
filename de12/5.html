@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="jp">
+<head>
+    <!-- ⑥↓タイトルを変えてみよう -->
+    <title>第5回</title>
+    <!-- ⑤スタイルシートの設定をしよう -->
+    <link rel="stylesheet" href="./css/style.css">
+    <!-- h1.htmlからある行をコピペしてくればOK -->
+</head>
+<body>
+    <h1>pythonで出来たらいいこと</h1>
+    <!-- 塊ごとにdivタグで区切るようにしましょう。 -->
+    <div>
+         <!-- ①↓に文字を書いてみよう -->
+         </div>
+         <div>
+
+         </div>
+<div>
+    
+</div>
+         <!-- ②↓に画像（imagesフォルダにあるtest.png）を挿入してみよう -->
+         
+         <h2><br>出された案は2種類</br></h2>
+         <div><br><br></div>
+         <br>「前髪の状態の良し悪しを判断してくれるカメラ機能」
+         <br>「気温を入力することで、洋服を判断してくれる機能」
+         <br>私は前者について調べを進めた。</br>
+         <h2><br>pythonでカメラ機能</br></h2>
+         <div><br><br></div>
+         <br>前髪の状態を判断する手順を考える。
+         <br>自身の写真を撮り、それを事前に設定していた長さとどれくらい近い状態かを判断してもらう。
+         <br>もしくは、理想の前髪の写真と自身の写真を比較してもらう。
+         <br>
+         <h2><br>カメラ機能の処理手順の考察</br></h2>
+         <div><br>顔と前髪の区別をどうすればいいのか。<br></div>
+         <br>一番単純な「明暗」での区別を提案する。
+         <br>以下、明暗で識別するpythonのコード
+         <br><code>
+            <ol style="list-style:decimal-leading-zero outside;in-left:0;padding-left:36px;margin:0;background-color:#EEF;color:#000;">
+            <li style="background-color:#EFF;">from cv2 import * </li>
+            <li style="background-color:#EEF;">from numpy import array, where, ones_like</li>
+            <li style="background-color:#EFF;">from matplotlib import pyplot</li>
+            <li style="background-color:#EEF;">&nbsp;</li>
+            <li style="background-color:#EFF;">&nbsp;</li>
+            <li style="background-color:#EEF;">## カラーで読み込んだ画像をcvtColorを用いてhsvに変更 ##</li>
+            <li style="background-color:#EFF;">img_cl = imread('tapioca_drink.png', 6)</li>
+            <li style="background-color:#EEF;">img_hsv = cvtColor(img_cl, COLOR_BGR2HSV)</li>
+            <li style="background-color:#EFF;">&nbsp;</li>
+            <li style="background-color:#EEF;">## 赤色の範囲を定義 ##</li>
+            <li style="background-color:#EFF;">hsv_min = array([150,  64,   0])</li>
+            <li style="background-color:#EEF;">hsv_max = array([180, 255, 255])</li>
+            <li style="background-color:#EFF;">&nbsp;</li>
+            <li style="background-color:#EEF;">## 赤色をマスクする ##   </li>
+            <li style="background-color:#EFF;">mask = inRange(img_hsv, hsv_min, hsv_max)</li>
+            <li style="background-color:#EEF;">mask = bitwise_not(mask)</li>
+            <li style="background-color:#EFF;">img_hsv = bitwise_and(img_hsv, img_hsv, mask = mask)</li>
+            <li style="background-color:#EEF;">&nbsp;</li>
+            <li style="background-color:#EFF;">## 背景の黒い部分などを白くする ##</li>
+            <li style="background-color:#EEF;">img_hsv[:, :, 2] = where(img_hsv[:, :, 2] &lt; 10, 255 * ones_like(img_hsv[:, :, 2]), img_hsv[:, :, 2])</li>
+            <li style="background-color:#EFF;">&nbsp;</li>
+            <li style="background-color:#EEF;">## HSVからBGRを経由して白黒に変更する ##</li>
+            <li style="background-color:#EFF;">img_bgr = cvtColor(img_hsv, COLOR_HSV2BGR)</li>
+            <li style="background-color:#EEF;">img_bw  = cvtColor(img_bgr, COLOR_BGR2GRAY)</li>
+            <li style="background-color:#EFF;">&nbsp;</li>
+            <li style="background-color:#EEF;">## ごみを取るためのブラシ処理 ##</li>
+            <li style="background-color:#EFF;">img_bw_b = blur(img_bw, (3, 3))</li>
+            <li style="background-color:#EEF;">&nbsp;</li>
+            <li style="background-color:#EFF;">## 暗い部分のみ残してみる ##</li>
+            <li style="background-color:#EEF;">img_bw_b = where(img_bw_b &lt; 90, 255, 0)</li>
+            <li style="background-color:#EFF;">pyplot.imshow(img_bw_b)</li>
+            </ol></code></br>
+            <h2><br>反省</br></h2>
+         <br>そもそも終わっていない。
+         <br>今回は黒髪（暗い色の髪）を前提にしてしまった。これでは肌との識別が難しくなる。
+         <br>「では、何で識別すれば良いか」の案がまだ出ていない。
+         <br>今後もプログラミングの変更を加えていく。
+         </br>
+        
+         <!-- ③↓に箇条書きをしてみよう -->
+
+         <!-- ④↓に外部リンクを作ってみよう -->
+<a href="./index.html">デザイン演習Ⅰ・Ⅱトップページ</a><br>
+
+
+    </div>
+
+</body>
+</html>
